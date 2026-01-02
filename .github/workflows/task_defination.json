@@ -1,5 +1,5 @@
 {
-    "family": "llmopstdlive",
+  "family": "llmopstdlive",
     "networkMode": "awsvpc",
     "executionRoleArn": "arn:aws:iam::122015480187:user/multidocrag", 
     "requiresCompatibilities": ["FARGATE"],
