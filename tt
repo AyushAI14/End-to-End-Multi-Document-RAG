@@ -1,17 +1,46 @@
-1. Navigate to the CloudFormation console in the AWS Management Console
+1. Navigate to the ECS console using the provided URL:
+https://eu-north-1.console.aws.amazon.com/ecs/v2/clusters/llmops-live-cluster/services?region=eu-north-1
 
-2. Locate the stack named 'Infra-ECS-Cluster-llmops-live-cluster-7bda421e'
+2. Locate and select the 'llmops-live-service' in the services list
 
-3. Select the stack 'Infra-ECS-Cluster-llmops-live-cluster-7bda421e'
+3. Click on the 'Events' tab to review recent deployment events and identify specific failure reasons
 
-4. Click on the 'Delete' button to initiate the stack deletion process
+4. Check the 'Deployments' tab to see if there are any failed deployments
 
-5. Confirm the deletion when prompted
+5. Review the task definition associated with the service:
+   - Click on the 'Configuration' tab
+   - Under 'Task definition', click on the task definition name
 
-6. Wait for the stack deletion to complete
+6. In the task definition details, verify:
+   - The container image URL is correct and accessible
+   - Environment variables are properly set
+   - Resource allocations (CPU, memory) are appropriate
 
-7. Once the stack is deleted, return to the ECS console
+7. If issues are found in the task definition:
+   - Create a new revision of the task definition with necessary corrections
+   - Update the service to use the new task definition revision
 
-8. Attempt to create the new ECS cluster with the same name as before
+8. If no issues are found in the task definition, check the service configuration:
+   - Go back to the service details page
+   - Click 'Edit' to review and update service settings
 
-9. If you encounter any permission issues during these steps, contact your AWS Administrator
+9. Verify network configuration:
+   - Ensure the VPC, subnets, and security groups are correctly set
+   - Check that the necessary ports are open in the security groups
+
+10. Review service auto scaling settings (if enabled) to ensure they are appropriate
+
+11. After making necessary changes, force a new deployment:
+    - On the service details page, click 'Update'
+    - Without changing any settings, scroll to the bottom and click 'Update service'
+
+12. Monitor the new deployment in the 'Deployments' tab
+
+13. If the issue persists, check CloudWatch logs:
+    - Go to the CloudWatch console
+    - Navigate to 'Log groups'
+    - Find and review logs for the ECS service and tasks
+
+14. Based on the findings from CloudWatch logs, make additional adjustments to the task definition or service configuration as needed
+
+15. If the problem continues, consider rolling back to a previous known-good task definition version temporarily while further investigating the root cause
