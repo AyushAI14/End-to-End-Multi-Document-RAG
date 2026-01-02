@@ -14,7 +14,6 @@ class ModelLoader:
     Loads embedding models and llms from config 
     """
     def __init__(self):
-        self.api_key = os.getenv('GEMINI_API_KEY')
         self.config = load_config()
         log.info(f'Config Yaml loaded : {list(self.config.keys())}')
     
@@ -24,7 +23,7 @@ class ModelLoader:
         """
         try:
             model_name = self.config['embedding_model']['model_name']
-            embedding = GoogleGenerativeAIEmbeddings(model = model_name,api_key= self.api_key)
+            embedding = GoogleGenerativeAIEmbeddings(model = model_name,api_key= os.getenv('GEMINI_API_KEY'))
             return embedding
             
         except Exception as e:
@@ -69,7 +68,7 @@ class ModelLoader:
             raise ValueError(f"Unsupported LLM provider: {provider}")
 
 if __name__ == '__main__':
-    loader = Modelloader()
+    loader = ModelLoader()
     # Test Embedding
     # embeddings = loader.load_embedding()
     # print(f"Embedding Model Loaded: {embeddings}")
