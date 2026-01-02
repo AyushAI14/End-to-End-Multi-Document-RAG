@@ -1,0 +1,11 @@
+.git
+.env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+data/
+faiss_index/
+node_modules/

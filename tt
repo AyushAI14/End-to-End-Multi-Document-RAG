@@ -1,0 +1,17 @@
+1. Navigate to the CloudFormation console in the AWS Management Console
+
+2. Locate the stack named 'Infra-ECS-Cluster-llmops-live-cluster-7bda421e'
+
+3. Select the stack 'Infra-ECS-Cluster-llmops-live-cluster-7bda421e'
+
+4. Click on the 'Delete' button to initiate the stack deletion process
+
+5. Confirm the deletion when prompted
+
+6. Wait for the stack deletion to complete
+
+7. Once the stack is deleted, return to the ECS console
+
+8. Attempt to create the new ECS cluster with the same name as before
+
+9. If you encounter any permission issues during these steps, contact your AWS Administrator
