@@ -8,7 +8,7 @@
     "containerDefinitions": [
       {
         "name": "llmops-live-container",
-        "image": "122015480187.dkr.ecr.eu-north-1.amazonaws.com/llmopsrepolive", 
+        "image": "122015480187.dkr.ecr.us-east-1.amazonaws.com/llmopsrepolive", 
         "cpu": 1024,
         "essential": true,
         "portMappings": [
@@ -29,7 +29,7 @@
         "secrets": [
           {
             "name": "apikeylive",
-            "valueFrom": "arn:aws:secretsmanager:eu-north-1:122015480187:secret:apikeylive-N3jU0P" 
+            "valueFrom": "arn:aws:secretsmanager:us-east-1:122015480187:secret:apikeylive-FKPlZx" 
           }
   
         ],
@@ -37,7 +37,7 @@
           "logDriver": "awslogs",
           "options": {
             "awslogs-group": "/ecs/llmopstdlive",
-            "awslogs-region": "eu-north-1",
+            "awslogs-region": "us-east-1",
             "awslogs-stream-prefix": "ecs",
             "awslogs-create-group": "true"
           }
